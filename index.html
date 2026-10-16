@@ -286,6 +286,13 @@
       align-self: center
     }
 
+    .nav-inner .logo img {
+      width: 58px;
+      height: 58px;
+      mix-blend-mode: darken;
+      filter: contrast(1.08)
+    }
+
     .logo em {
       font-style: italic;
       font-weight: 400;
@@ -338,113 +345,6 @@
 
     .nav-cta.active {
       background: var(--chili)
-    }
-
-    .nav-dropdown {
-      position: relative
-    }
-
-    .nav-dropdown {
-      display: flex;
-      align-items: center;
-      gap: .25rem
-    }
-
-    .nav-dropdown>.nav-link {
-      display: inline-block
-    }
-
-    .nav-menu-toggle {
-      display: grid;
-      place-items: center;
-      width: 25px;
-      height: 25px;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      background: transparent;
-      color: var(--ink-soft);
-      transition: color .2s, background .2s;
-    }
-
-    .nav-menu-toggle:hover,
-    .nav-menu-toggle[aria-expanded="true"] {
-      color: var(--ink);
-      background: var(--cream-2)
-    }
-
-    .nav-menu-toggle svg {
-      width: 14px;
-      height: 14px;
-      transition: transform .22s
-    }
-
-    .nav-menu-toggle[aria-expanded="true"] svg {
-      transform: rotate(180deg)
-    }
-
-    .nav-dropdown::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: -1rem;
-      right: -1rem;
-      height: .45rem
-    }
-
-    .nav-submenu {
-      position: absolute;
-      top: 100%;
-      left: -1rem;
-      z-index: 5;
-      min-width: 220px;
-      display: grid;
-      gap: .15rem;
-      list-style: none;
-      padding: .65rem;
-      background: var(--paper);
-      border: 1px solid var(--beige-soft);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translateY(.45rem);
-      transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
-    }
-
-    .nav-dropdown.is-open .nav-submenu {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateY(0);
-      transition-delay: 0s;
-    }
-
-    @media (hover:hover) and (pointer:fine) {
-      .nav-dropdown:hover .nav-submenu {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-        transition-delay: 0s;
-      }
-    }
-
-    .nav-submenu a {
-      display: block;
-      padding: .55rem .7rem;
-      border-radius: 8px;
-      color: var(--ink-soft);
-      font-size: .9rem;
-      white-space: nowrap;
-      transition: color .2s, background .2s;
-    }
-
-    .nav-submenu a:hover,
-    .nav-submenu a:focus-visible {
-      color: var(--ink);
-      background: var(--cream-2)
     }
 
     .nav-cta {
@@ -1058,6 +958,11 @@
       max-width: 24ch
     }
 
+    .cta-inner p {
+      max-width: 48ch;
+      margin: 1rem 0 0
+    }
+
     .cta-inner .eyebrow {
       color: var(--chili-soft)
     }
@@ -1263,8 +1168,6 @@
     .contact-list .ci {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      background: rgba(247, 241, 229, .08);
       display: grid;
       place-items: center;
       flex: none;
@@ -1985,18 +1888,8 @@
       <nav>
         <ul class="nav-links">
           <li><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-dropdown">
-            <a class="nav-link" href="#menu" aria-controls="menuSubmenu">Menu</a>
-            <button class="nav-menu-toggle" id="menuToggle" type="button" aria-label="Buka kategori menu"
-              aria-expanded="false" aria-controls="menuSubmenu">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <ul class="nav-submenu" id="menuSubmenu" aria-label="Kategori menu"></ul>
-          </li>
           <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#menu">Menu</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -2025,11 +1918,11 @@
             stroke-width="1.6" stroke-linecap="round">
             <path d="M7 17L17 7M8 7h9v9" />
           </svg></a></li>
-      <li><a href="#menu">Menu <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      <li><a href="#about">About <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.6" stroke-linecap="round">
             <path d="M7 17L17 7M8 7h9v9" />
           </svg></a></li>
-      <li><a href="#about">About <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      <li><a href="#menu">Menu <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="1.6" stroke-linecap="round">
             <path d="M7 17L17 7M8 7h9v9" />
           </svg></a></li>
@@ -2118,7 +2011,7 @@
       <div class="section values">
         <div class="container">
           <div data-reveal>
-            <span class="eyebrow">Kenapa Kami</span>
+            <span class="eyebrow">Kenapa Kami? </span>
             <h2 style="margin-top:1rem;max-width:16ch">Alasan pelanggan kembali lagi</h2>
           </div>
           <div id="homeValues"></div>
@@ -2131,8 +2024,10 @@
           <div class="cta-band" data-reveal>
             <div class="cta-inner">
               <div>
-                <span class="eyebrow">Lagi Lapar?</span>
-
+                <span class="eyebrow">Lagi Lapar? </span>
+                <h2 style="margin-top:1rem">Temukan Sajian Favoritmu</h2>
+                <p>Nikmati pangsit pilihan Veloure Foods untuk menemani waktu santai atau momen spesialmu. Pilih
+                  favoritmu dan pesan sekarang.</p>
               </div>
               <div class="cta-actions">
                 <a href="#order" class="btn btn-light">Order Now
@@ -2148,18 +2043,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ================= MENU ================= -->
-    <section class="page" id="menu">
-      <div class="container page-head">
-        <span class="eyebrow">Menu</span>
-        <h2>Our Menu</h2>
-        <p>Semua sajian dibuat setelah pesananmu masuk — fresh dari dapur, langsung ke meja kamu.</p>
-        <div class="menu-grid" id="menuGrid"></div>
-
-      </div>
-      <div class="section"></div>
     </section>
 
     <!-- ================= ABOUT ================= -->
@@ -2180,8 +2063,7 @@
             <p>Kami percaya bahwa makanan bukan sekadar tentang rasa, melainkan juga tentang kenyamanan, kualitas, dan
               kebahagiaan dalam setiap sajian. Melalui setiap produk, Veloure Foods ingin menjadi bagian dari momen
               sederhana yang terasa lebih istimewa.</p>
-            <div class="pull-quote">“Makanan bukan sekadar tentang rasa — tapi tentang momen ketika kamu merasa
-              dirawat.”</div>
+            <div class="pull-quote">“Ada rasa yang selalu punya alasan untuk dipesan lagi.”</div>
 
             <div class="brand-values">
               <div class="brand-value">
@@ -2192,7 +2074,7 @@
                   </svg></span>
                 <div>
                   <h3>Quality Ingredients</h3>
-                  <p>Bahan segar pilihan, tanpa pengawet dan tanpa kompromi — karena rasa yang baik selalu dimulai dari
+                  <p>Bahan segar pilihan, tanpa pengawet karena rasa yang baik selalu dimulai dari
                     bahan yang baik.</p>
                 </div>
               </div>
@@ -2215,7 +2097,7 @@
                   </svg></span>
                 <div>
                   <h3>Memorable Taste</h3>
-                  <p>Resep yang diracik berulang hingga menemukan keseimbangan yang tepat — gurih, hangat, dan selalu
+                  <p>Resep yang diracik berulang hingga menemukan keseimbangan yang tepat, gurih, hangat, dan selalu
                     bikin kangen.</p>
                 </div>
               </div>
@@ -2223,6 +2105,19 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ================= MENU ================= -->
+    <section class="page" id="menu">
+      <div class="container page-head">
+        <span class="eyebrow">Menu</span>
+        <h2>Our Menu</h2>
+        <p>Dua pilihan, dua karakter rasa. Mau sensasi pedas gurih dari pangsit chili oil atau hangatnya pangsit soup?
+          Temukan yang paling cocok untuk menemani harimu.</p>
+        <div class="menu-grid" id="menuGrid"></div>
+
+      </div>
+      <div class="section"></div>
     </section>
 
     <!-- ================= CONTACT ================= -->
@@ -2279,13 +2174,29 @@
                 </svg>
                 Chat with Us
               </a>
-              <a class="btn btn-ghost-light" id="igBtn" target="_blank" rel="noopener">Lihat Instagram</a>
+              <a class="btn btn-ghost-light" id="igBtn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" />
+                </svg>
+                Lihat Instagram
+              </a>
+              <a class="btn btn-ghost-light" id="emailBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+                Kirim Email
+              </a>
             </div>
           </div>
 
           <form class="form-card" id="contactForm" data-reveal novalidate>
             <h3>Kirim Pesan</h3>
-            <p>Isi formulir di bawah — pesanmu akan langsung diteruskan ke WhatsApp kami.</p>
+            <p>Isi formulir di bawah pesanmu akan langsung diteruskan ke WhatsApp kami.</p>
             <div class="field" id="fName">
               <label for="inName">Nama</label>
               <input type="text" id="inName" placeholder="Nama kamu" autocomplete="name">
@@ -2312,7 +2223,7 @@
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 8v.01M12 11.5V16" />
               </svg>
-              Tanpa pembayaran online — semua pemesanan dikonfirmasi lewat WhatsApp.
+              Semua pesanan dikonfirmasi lewat WhatsApp.
             </p>
           </form>
         </div>
@@ -2325,7 +2236,7 @@
         <div class="page-head" style="padding:0">
           <span class="eyebrow">Order</span>
           <h2>Buat Pesananmu</h2>
-          <p>Pilih menu, atur jumlah, tambahkan catatan — lalu kirim pesananmu langsung ke WhatsApp kami.</p>
+          <p>Pilih menu, atur jumlah, tambahkan catatan lalu kirim pesananmu langsung ke WhatsApp kami.</p>
         </div>
 
         <div class="order-steps" data-reveal>
@@ -2377,8 +2288,8 @@
           <h4>Navigasi</h4>
           <ul class="footer-nav">
             <li><a href="#home">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#order">Order Now</a></li>
           </ul>
@@ -2446,8 +2357,8 @@
     };
 
     const CATS = {
-      chili: 'Chili Oil Series',
-      wonton: 'Wonton & Dumpling',
+      chili: 'Chili Oil',
+      wonton: 'Pangsit',
     };
 
     const MENU = [
@@ -2456,8 +2367,8 @@
         desc: 'Pangsit rebus lembut dengan chili oil homemade, bawang putih goreng renyah, dan sentuhan daun bawang.', img: 'pangsit'
       },
       {
-        id: 'wonton-soup', cat: 'wonton', name: 'Wonton Soup', price: 13000, pcs: 5, featured: 1,
-        desc: 'Wonton isi ayam dalam kuah kaldu hangat, ditaburi daun bawang dan bawang goreng.', img: 'wonton'
+        id: 'pangsit-soup', cat: 'wonton', name: 'Pangsit Soup', price: 13000, pcs: 5, featured: 1,
+        desc: 'Hangatnya kuah gurih berpadu dengan pangsit isi ayam yang lembut, dilengkapi taburan daun bawang dan bawang goreng untuk sentuhan rasa yang semakin nikmat.', img: 'wonton'
       },
     ];
     /* ================= AKHIR DATA BISNIS ================= */
@@ -2484,7 +2395,7 @@
     };
 
     /* ---------- State ---------- */
-    const PAGES = ['home', 'menu', 'about', 'contact', 'order'];
+    const PAGES = ['home', 'about', 'menu', 'contact', 'order'];
     const orderState = {};   // id -> qty
     let flashId = null;
 
@@ -2499,7 +2410,7 @@
 
     /* ---------- Render: marquee ---------- */
     (function renderMarquee() {
-      const items = ['Lebih dari Sekadar Rasa', 'Fresh from Our Kitchen', 'Made to Order', 'Food Homemade', 'Dapur Rumahan Veloure'];
+      const items = ['LEBIH DARI SEKADAR RASA', 'FRESH FROM OUR KITCHEN', 'MADE TO ORDER', 'FOOD HOMEMADE', 'SELALU ADA YANG INGIN DICOBA'];
       const chunk = `<div class="marquee-item">${items.map(t => `<span>${t}</span>${IC.aster}`).join('')}</div>`;
       $('#marqueeTrack').innerHTML = chunk + chunk; // diduplikasi agar loop mulus
     })();
@@ -2534,9 +2445,9 @@
 
     (function renderHomeValues() {
       const data = [
-        ['Food Homemade', 'Setiap sajian diproses fresh di dapur kami sendiri — tanpa pengawet, dengan perhatian penuh pada setiap detail.'],
-        ['Cita Rasa yang Berkesan', 'Resep yang diracik berulang hingga menemukan keseimbangan rasa yang tepat: gurih, pedas lembut, dan selalu nagih.'],
-        ['Menemani Setiap Momen', 'Sarapan singkat, bekal kantor, atau dinner santai di rumah — selalu ada sajian yang pas untuk setiap waktu.'],
+        ['Food Homemade', 'Setiap sajian diproses fresh di dapur kami sendiri. Tanpa pengawet, dengan perhatian penuh pada setiap detail.'],
+        ['Cita Rasa yang Berkesan', 'Resep yang diracik berulang hingga menemukan keseimbangan rasa yang tepat. Gurih, pedas, tekstur pangsit lembut, dan selalu bikin nagih.'],
+        ['Teman di Setiap Momen', 'Dari camilan santai di waktu luang hingga hidangan untuk menemani waktu berkumpul, Veloure Foods menghadirkan sajian istimewa yang cocok dinikmati kapan saja.'],
       ];
       $('#homeValues').innerHTML = data.map((d, i) => `
     <div class="value-row" data-reveal>
@@ -2551,10 +2462,6 @@
       $('#menuGrid').innerHTML = MENU.map((m, i) =>
         menuCard(m, i * 50, MENU.findIndex(item => item.cat === m.cat) === i)
       ).join('');
-      $('#menuSubmenu').innerHTML = Object.entries(CATS)
-        .filter(([cat]) => MENU.some(m => m.cat === cat))
-        .map(([cat, label]) => `<li><a href="#menu-category-${cat}">${label}</a></li>`)
-        .join('');
     }
 
     /* ---------- Render: halaman order ---------- */
@@ -2743,36 +2650,6 @@ Ditunggu konfirmasinya ya. Terima kasih!`;
     $('#burger').addEventListener('click', () => { $('#drawer').classList.add('open'); document.body.classList.add('lock'); });
     $('#drawerClose').addEventListener('click', closeDrawer);
 
-    const menuDropdown = document.querySelector('.nav-dropdown');
-    const menuToggle = $('#menuToggle');
-    const canHoverMenu = window.matchMedia('(hover: hover) and (pointer: fine)');
-    function syncMenuDropdownState() {
-      const open = menuDropdown.classList.contains('is-open') || (canHoverMenu.matches && menuDropdown.matches(':hover'));
-      menuToggle.setAttribute('aria-expanded', String(open));
-      menuToggle.setAttribute('aria-label', open ? 'Tutup kategori menu' : 'Buka kategori menu');
-    }
-    function setMenuDropdownOpen(open) {
-      menuDropdown.classList.toggle('is-open', open);
-      syncMenuDropdownState();
-    }
-    menuDropdown.addEventListener('pointerenter', syncMenuDropdownState);
-    menuDropdown.addEventListener('pointerleave', () => setMenuDropdownOpen(false));
-    menuToggle.addEventListener('click', () => {
-      setMenuDropdownOpen(!menuDropdown.classList.contains('is-open'));
-    });
-    document.addEventListener('click', e => {
-      if (!menuDropdown.contains(e.target)) setMenuDropdownOpen(false);
-    });
-    menuDropdown.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        setMenuDropdownOpen(false);
-        menuToggle.focus();
-      }
-    });
-    $('#menuSubmenu').addEventListener('click', e => {
-      if (e.target.closest('a')) setMenuDropdownOpen(false);
-    });
-
     /* ---------- Reveal on scroll ---------- */
     const io = new IntersectionObserver(entries => {
       entries.forEach(en => {
@@ -2796,6 +2673,7 @@ Ditunggu konfirmasinya ya. Terima kasih!`;
       $('#cWa').textContent = waDisplay;
       $('#cWa').href = $('#chatBtn').href = waLink('Halo Veloure Foods! Saya ingin bertanya.');
       $('#igBtn').href = CONFIG.instagramUrl;
+      $('#emailBtn').href = `mailto:${CONFIG.email}`;
 
       $('#ftHoursDays').textContent = CONFIG.hoursDays;
       $('#ftHoursTime').textContent = CONFIG.hoursTime;
